@@ -43,7 +43,6 @@ x_array = []
 y_array = []
 z_array = []
 for i in degree:
-    # print("θ=",i)
     if deg_1 <= i < deg_2:
         x_array.append(X_12 + R_12 * np.cos(np.radians(i)))
         y_array.append(Y_12 + R_12 * np.sin(np.radians(i)))
@@ -117,14 +116,15 @@ for i in degree:
         x_array.append(x_1 + (r_1 - gawaitaTop_offsetFromR) * np.cos(np.radians(i)))
         y_array.append(y_1 + (r_1 - gawaitaTop_offsetFromR) * np.sin(np.radians(i)))
         z_array.append(sokoitaHeight)
-        x_arr
-        ay.append(x_1 + (r_1 - gawaitaBottom_offsetFromR) * np.cos(np.radians(i)))
+        x_array.append(x_1 + (r_1 - gawaitaBottom_offsetFromR) * np.cos(np.radians(i)))
         y_array.append(y_1 + (r_1 - gawaitaBottom_offsetFromR) * np.sin(np.radians(i)))
         z_array.append(sokoitaHeight - sokoitaThickness)
-        
+
 new_array = x_array + y_array + z_array
 temp_a = np.array(new_array)
-outer_top_array = np.reshape(temp_a, (3, len(degree)))
+print("length of new_array = ", len(new_array))
+print("degree = ", len(degree))
+outer_top_array = np.reshape(temp_a, (3, len(degree) * 6))
 
 x_array = []
 y_array = []
