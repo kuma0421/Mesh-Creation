@@ -53,11 +53,11 @@ for i in degree:
         x_array.append(X_12 + (R_12 - gawaitaThickness) * np.cos(np.radians(i)))
         y_array.append(Y_12 + (R_12 - gawaitaThickness) * np.sin(np.radians(i)))
         z_array.append(gawaitaHeight)
-        x_array.append(X_12 + (R_12 - ochi) * np.cos(np.radians(i)))
-        y_array.append(Y_12 + (R_12 - ochi) * np.sin(np.radians(i)))
-        z_array.append(0.0)
         x_array.append(X_12 + (R_12 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
         y_array.append(Y_12 + (R_12 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
+        z_array.append(0.0)
+        x_array.append(X_12 + (R_12 - ochi) * np.cos(np.radians(i)))
+        y_array.append(Y_12 + (R_12 - ochi) * np.sin(np.radians(i)))
         z_array.append(0.0)
 
     if deg_2 <= i < deg_3:
@@ -67,11 +67,11 @@ for i in degree:
         x_array.append(x_2 + (r_2 - gawaitaThickness) * np.cos(np.radians(i)))
         y_array.append(y_2 + (r_2 - gawaitaThickness) * np.sin(np.radians(i)))
         z_array.append(gawaitaHeight)
-        x_array.append(x_2 + (r_2 - ochi) * np.cos(np.radians(i)))
-        y_array.append(y_2 + (r_2 - ochi) * np.sin(np.radians(i)))
-        z_array.append(0.0)
         x_array.append(x_2 + (r_2 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
         y_array.append(y_2 + (r_2 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
+        z_array.append(0.0)
+        x_array.append(x_2 + (r_2 - ochi) * np.cos(np.radians(i)))
+        y_array.append(y_2 + (r_2 - ochi) * np.sin(np.radians(i)))
         z_array.append(0.0)
 
     if deg_3 <= i < deg_4:
@@ -81,11 +81,11 @@ for i in degree:
         x_array.append(X_21 + (R_21 - gawaitaThickness) * np.cos(np.radians(i)))
         y_array.append(Y_21 + (R_21 - gawaitaThickness) * np.sin(np.radians(i)))
         z_array.append(gawaitaHeight)
-        x_array.append(X_21 + (R_21 - ochi) * np.cos(np.radians(i)))
-        y_array.append(Y_21 + (R_21 - ochi) * np.sin(np.radians(i)))
-        z_array.append(0.0)
         x_array.append(X_21 + (R_21 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
         y_array.append(Y_21 + (R_21 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
+        z_array.append(0.0)
+        x_array.append(X_21 + (R_21 - ochi) * np.cos(np.radians(i)))
+        y_array.append(Y_21 + (R_21 - ochi) * np.sin(np.radians(i)))
         z_array.append(0.0)
 
     if deg_4 <= i <= deg_5:
@@ -95,11 +95,11 @@ for i in degree:
         x_array.append(x_1 + (r_1 - gawaitaThickness) * np.cos(np.radians(i)))
         y_array.append(y_1 + (r_1 - gawaitaThickness) * np.sin(np.radians(i)))
         z_array.append(gawaitaHeight)
-        x_array.append(x_1 + (r_1 - ochi) * np.cos(np.radians(i)))
-        y_array.append(y_1 + (r_1 - ochi) * np.sin(np.radians(i)))
-        z_array.append(0.0)
         x_array.append(x_1 + (r_1 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
         y_array.append(y_1 + (r_1 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
+        z_array.append(0.0)
+        x_array.append(x_1 + (r_1 - ochi) * np.cos(np.radians(i)))
+        y_array.append(y_1 + (r_1 - ochi) * np.sin(np.radians(i)))
         z_array.append(0.0)
 
 new_array = x_array + y_array + z_array
@@ -119,78 +119,67 @@ faces_array = []
 for i in range(deg_count):
     if i + 1 == deg_count:
         faces_array.append(4)
-        faces_array.append(i)
-        faces_array.append(deg_count * 2 + i)
-        faces_array.append(deg_count * 2)
+        faces_array.append(i - 1)
+        faces_array.append(deg_count * 3 + i + 2)
+        faces_array.append(deg_count * 3 + i + 3)
         faces_array.append(0)
     else:
         faces_array.append(4)
         faces_array.append(i)
-        faces_array.append(deg_count * 2 + i)
-        faces_array.append(deg_count * 2 + i + 1)
+        faces_array.append(deg_count * 3 + i + 3)
+        faces_array.append(deg_count * 3 + i + 4)
         faces_array.append(i + 1)
-# 側板（内面-上から底板上面まで）
+
+# 側板（内面-上から下面まで）
 for i in range(deg_count):
     if i + 1 == deg_count:
-        faces_array.append(4)
-        faces_array.append(deg_count + i)
-        faces_array.append(deg_count)
-        faces_array.append(deg_count * 4)
-        faces_array.append(deg_count * 4 + i)
-    else:
         faces_array.append(4)
         faces_array.append(deg_count + i)
         faces_array.append(deg_count + i + 1)
-        faces_array.append(deg_count * 4 + i + 1)
-        faces_array.append(deg_count * 4 + i)
-# 側板（内面-底板下面から下まで）
-for i in range(deg_count):
-    if i + 1 == deg_count:
-        faces_array.append(4)
-        faces_array.append(deg_count * 5 + i)
-        faces_array.append(deg_count * 5)
-        faces_array.append(deg_count * 3)
-        faces_array.append(deg_count * 3 + i)
+        faces_array.append(deg_count * 2 + i + 2)
+        faces_array.append(deg_count * 2 + i + 1)
     else:
         faces_array.append(4)
-        faces_array.append(deg_count * 5 + i)
-        faces_array.append(deg_count * 5 + i + 1)
-        faces_array.append(deg_count * 3 + i + 1)
-        faces_array.append(deg_count * 3 + i)
+        faces_array.append(deg_count + i + 1)
+        faces_array.append(deg_count + i + 2)
+        faces_array.append(deg_count * 2 + i + 3)
+        faces_array.append(deg_count * 2 + i + 2)
+
 
 # 側板（上小口面）
 for i in range(deg_count):
     if i + 1 == deg_count:
         faces_array.append(4)
+        faces_array.append(i - 1)
         faces_array.append(i)
-        faces_array.append(0)
-        faces_array.append(deg_count)
+        faces_array.append(deg_count + i + 1)
         faces_array.append(deg_count + i)
     else:
         faces_array.append(4)
         faces_array.append(i)
         faces_array.append(i + 1)
+        faces_array.append(deg_count + i + 2)
         faces_array.append(deg_count + i + 1)
-        faces_array.append(deg_count + i)
+
 # 側板（下小口面）
 for i in range(deg_count):
     if i + 1 == deg_count:
         faces_array.append(4)
-        faces_array.append(deg_count * 2 + i)
-        faces_array.append(deg_count * 3 + i)
-        faces_array.append(deg_count * 3)
-        faces_array.append(deg_count * 2)
+        faces_array.append(deg_count * 3 + i + 2)
+        faces_array.append(deg_count * 3 + i + 3)
+        faces_array.append(deg_count * 2 + i + 2)
+        faces_array.append(deg_count * 2 + i + 1)
     else:
         faces_array.append(4)
-        faces_array.append(deg_count * 2 + i)
-        faces_array.append(deg_count * 3 + i)
-        faces_array.append(deg_count * 3 + i + 1)
-        faces_array.append(deg_count * 2 + i + 1)
+        faces_array.append(deg_count * 3 + i + 3)
+        faces_array.append(deg_count * 3 + i + 4)
+        faces_array.append(deg_count * 2 + i + 3)
+        faces_array.append(deg_count * 2 + i + 2)
 
 faces_temp = np.array(faces_array)
-faces = np.reshape(faces_temp, ((deg_count) * 5, 5))
+faces = np.reshape(faces_temp, ((deg_count) * 1, 5))
 surf = pv.PolyData(vertices, faces)
-
+"""
 # 底板（上面）
 sokoita_Top_faces = []
 sokoita_Top_faces.append(deg_count)
@@ -554,11 +543,11 @@ for i in range(deg_count):
 Taga_faces_temp = np.array(Taga_faces)
 facesT = np.reshape(Taga_faces_temp, ((deg_count) * 8, 5))
 surf3 = pv.PolyData(vertices_T, facesT)
-
+"""
 plotter.add_mesh(surf, color="tan")
-plotter.add_mesh(surf1, color="tan")
-plotter.add_mesh(surf2, color="tan")
-plotter.add_mesh(surf3, color="gray")
+# plotter.add_mesh(surf1, color="tan")
+# plotter.add_mesh(surf2, color="tan")
+# plotter.add_mesh(surf3, color="gray")
 
 plotter.reset_camera()
 plotter.show()
