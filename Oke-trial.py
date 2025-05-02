@@ -1,6 +1,7 @@
+
 import numpy as np
 import pyvista as pv  # Delete for non-Pro version
-from pyvistaqt import BackgroundPlotter  # Delete for non-Pro version
+# from pyvistaqt import BackgroundPlotter  # Delete for non-Pro version
 
 
 deg_1 = 261.37307344132137
@@ -283,8 +284,8 @@ for i in range(deg_count):
         faces_array.append(deg_count * 3 + i + 1)
         faces_array.append(deg_count * 2 + i + 1)
 
-plotter = BackgroundPlotter()
-
+plotter = pv.Plotter()
+# plotter = BackgroundPlotter()
 plotter.enable_parallel_projection()
 faces_temp = np.array(faces_array)
 faces = np.reshape(faces_temp, ((deg_count) * 5, 5))
@@ -657,7 +658,7 @@ surf3 = pv.PolyData(vertices_T, facesT)
 plotter.add_mesh(surf, color="tan")
 plotter.add_mesh(surf1, color="tan")
 plotter.add_mesh(surf2, color="tan")
+plotter.add_mesh(surf3, color="gray")
 
 plotter.reset_camera()
 plotter.show()
-FigureCanvas.draw()
