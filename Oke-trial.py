@@ -48,19 +48,80 @@ for i in degree:
         x_array.append(X_12 + R_12 * np.cos(np.radians(i)))
         y_array.append(Y_12 + R_12 * np.sin(np.radians(i)))
         z_array.append(gawaitaHeight)
+        x_array.append(X_12 + (R_12 - gawaitaThickness) * np.cos(np.radians(i)))
+        y_array.append(Y_12 + (R_12 - gawaitaThickness) * np.sin(np.radians(i)))
+        z_array.append(gawaitaHeight)
+        x_array.append(X_12 + (R_12 - ochi) * np.cos(np.radians(i)))
+        y_array.append(Y_12 + (R_12 - ochi) * np.sin(np.radians(i)))
+        z_array.append(0.0)
+        x_array.append(X_12 + (R_12 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
+        y_array.append(Y_12 + (R_12 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
+        z_array.append(0.0)
+        x_array.append(X_12 + (R_12 - gawaitaTop_offsetFromR) * np.cos(np.radians(i)))
+        y_array.append(Y_12 + (R_12 - gawaitaTop_offsetFromR) * np.sin(np.radians(i)))
+        z_array.append(sokoitaHeight)
+        x_array.append(X_12 + (R_12 - gawaitaBottom_offsetFromR) * np.cos(np.radians(i)))
+        y_array.append(Y_12 + (R_12 - gawaitaBottom_offsetFromR) * np.sin(np.radians(i)))
+        z_array.append(sokoitaHeight - sokoitaThickness)
     if deg_2 <= i < deg_3:
         x_array.append(x_2 + r_2 * np.cos(np.radians(i)))
         y_array.append(y_2 + r_2 * np.sin(np.radians(i)))
         z_array.append(gawaitaHeight)
+        x_array.append(x_2 + (r_2 - gawaitaThickness) * np.cos(np.radians(i)))
+        y_array.append(y_2 + (r_2 - gawaitaThickness) * np.sin(np.radians(i)))
+        z_array.append(gawaitaHeight)
+        x_array.append(x_2 + (r_2 - ochi) * np.cos(np.radians(i)))
+        y_array.append(y_2 + (r_2 - ochi) * np.sin(np.radians(i)))
+        z_array.append(0.0)
+        x_array.append(x_2 + (r_2 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
+        y_array.append(y_2 + (r_2 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
+        z_array.append(0.0)
+        x_array.append(x_2 + (r_2 - gawaitaTop_offsetFromR) * np.cos(np.radians(i)))
+        y_array.append(y_2 + (r_2 - gawaitaTop_offsetFromR) * np.sin(np.radians(i)))
+        z_array.append(sokoitaHeight)
+        x_array.append(x_2 + (r_2 - gawaitaBottom_offsetFromR) * np.cos(np.radians(i)))
+        y_array.append(y_2 + (r_2 - gawaitaBottom_offsetFromR) * np.sin(np.radians(i)))
+        z_array.append(sokoitaHeight - sokoitaThickness)
     if deg_3 <= i < deg_4:
         x_array.append(X_21 + R_21 * np.cos(np.radians(i)))
         y_array.append(Y_21 + R_21 * np.sin(np.radians(i)))
         z_array.append(gawaitaHeight)
+        x_array.append(X_21 + (R_21 - gawaitaThickness) * np.cos(np.radians(i)))
+        y_array.append(Y_21 + (R_21 - gawaitaThickness) * np.sin(np.radians(i)))
+        z_array.append(gawaitaHeight)
+        x_array.append(X_21 + (R_21 - ochi) * np.cos(np.radians(i)))
+        y_array.append(Y_21 + (R_21 - ochi) * np.sin(np.radians(i)))
+        z_array.append(0.0)
+        x_array.append(X_21 + (R_21 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
+        y_array.append(Y_21 + (R_21 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
+        z_array.append(0.0)
+        x_array.append(X_21 + (R_21 - gawaitaTop_offsetFromR) * np.cos(np.radians(i)))
+        y_array.append(Y_21 + (R_21 - gawaitaTop_offsetFromR) * np.sin(np.radians(i)))
+        z_array.append(sokoitaHeight)
+        x_array.append(X_21 + (R_21 - gawaitaBottom_offsetFromR) * np.cos(np.radians(i)))
+        y_array.append(Y_21 + (R_21 - gawaitaBottom_offsetFromR) * np.sin(np.radians(i)))
+        z_array.append(sokoitaHeight - sokoitaThickness)
     if deg_4 <= i <= deg_5:
         x_array.append(x_1 + r_1 * np.cos(np.radians(i)))
         y_array.append(y_1 + r_1 * np.sin(np.radians(i)))
         z_array.append(gawaitaHeight)
-
+        x_array.append(x_1 + (r_1 - gawaitaThickness) * np.cos(np.radians(i)))
+        y_array.append(y_1 + (r_1 - gawaitaThickness) * np.sin(np.radians(i)))
+        z_array.append(gawaitaHeight)
+        x_array.append(x_1 + (r_1 - ochi) * np.cos(np.radians(i)))
+        y_array.append(y_1 + (r_1 - ochi) * np.sin(np.radians(i)))
+        z_array.append(0.0)
+        x_array.append(x_1 + (r_1 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
+        y_array.append(y_1 + (r_1 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
+        z_array.append(0.0)
+        x_array.append(x_1 + (r_1 - gawaitaTop_offsetFromR) * np.cos(np.radians(i)))
+        y_array.append(y_1 + (r_1 - gawaitaTop_offsetFromR) * np.sin(np.radians(i)))
+        z_array.append(sokoitaHeight)
+        x_arr
+        ay.append(x_1 + (r_1 - gawaitaBottom_offsetFromR) * np.cos(np.radians(i)))
+        y_array.append(y_1 + (r_1 - gawaitaBottom_offsetFromR) * np.sin(np.radians(i)))
+        z_array.append(sokoitaHeight - sokoitaThickness)
+        
 new_array = x_array + y_array + z_array
 temp_a = np.array(new_array)
 outer_top_array = np.reshape(temp_a, (3, len(degree)))
@@ -68,147 +129,11 @@ outer_top_array = np.reshape(temp_a, (3, len(degree)))
 x_array = []
 y_array = []
 z_array = []
-for i in degree:
-    # print("θ = ",i)
-    if deg_1 <= i < deg_2:
-        x_array.append(X_12 + (R_12 - gawaitaThickness) * np.cos(np.radians(i)))
-        y_array.append(Y_12 + (R_12 - gawaitaThickness) * np.sin(np.radians(i)))
-        z_array.append(gawaitaHeight)
-    if deg_2 <= i < deg_3:
-        x_array.append(x_2 + (r_2 - gawaitaThickness) * np.cos(np.radians(i)))
-        y_array.append(y_2 + (r_2 - gawaitaThickness) * np.sin(np.radians(i)))
-        z_array.append(gawaitaHeight)
-    if deg_3 <= i < deg_4:
-        x_array.append(X_21 + (R_21 - gawaitaThickness) * np.cos(np.radians(i)))
-        y_array.append(Y_21 + (R_21 - gawaitaThickness) * np.sin(np.radians(i)))
-        z_array.append(gawaitaHeight)
-    if deg_4 <= i <= deg_5:
-        x_array.append(x_1 + (r_1 - gawaitaThickness) * np.cos(np.radians(i)))
-        y_array.append(y_1 + (r_1 - gawaitaThickness) * np.sin(np.radians(i)))
-        z_array.append(gawaitaHeight)
-new_array = x_array + y_array + z_array
-temp_a = np.array(new_array)
-inner_top_array = np.reshape(temp_a, (3, len(degree)))
-
-# 底側縁
-x_array = []
-y_array = []
-z_array = []
-for i in degree:
-    # print("θ = ",i)
-    if deg_1 <= i < deg_2:
-        x_array.append(X_12 + (R_12 - ochi) * np.cos(np.radians(i)))
-        y_array.append(Y_12 + (R_12 - ochi) * np.sin(np.radians(i)))
-        z_array.append(0.0)
-    if deg_2 <= i < deg_3:
-        x_array.append(x_2 + (r_2 - ochi) * np.cos(np.radians(i)))
-        y_array.append(y_2 + (r_2 - ochi) * np.sin(np.radians(i)))
-        z_array.append(0.0)
-    if deg_3 <= i < deg_4:
-        x_array.append(X_21 + (R_21 - ochi) * np.cos(np.radians(i)))
-        y_array.append(Y_21 + (R_21 - ochi) * np.sin(np.radians(i)))
-        z_array.append(0.0)
-    if deg_4 <= i <= deg_5:
-        x_array.append(x_1 + (r_1 - ochi) * np.cos(np.radians(i)))
-        y_array.append(y_1 + (r_1 - ochi) * np.sin(np.radians(i)))
-        z_array.append(0.0)
-new_array = x_array + y_array + z_array
-temp_a = np.array(new_array)
-outer_bottom_array = np.reshape(temp_a, (3, len(degree)))
-
-x_array = []
-y_array = []
-z_array = []
-for i in degree:
-    # print("θ = ",i)
-    if deg_1 <= i < deg_2:
-        x_array.append(X_12 + (R_12 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
-        y_array.append(Y_12 + (R_12 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
-        z_array.append(0.0)
-    if deg_2 <= i < deg_3:
-        x_array.append(x_2 + (r_2 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
-        y_array.append(y_2 + (r_2 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
-        z_array.append(0.0)
-    if deg_3 <= i < deg_4:
-        x_array.append(X_21 + (R_21 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
-        y_array.append(Y_21 + (R_21 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
-        z_array.append(0.0)
-    if deg_4 <= i <= deg_5:
-        x_array.append(x_1 + (r_1 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
-        y_array.append(y_1 + (r_1 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
-        z_array.append(0.0)
-
-new_array = x_array + y_array + z_array
-temp_a = np.array(new_array)
-inner_bottom_array = np.reshape(temp_a, (3, len(degree)))
-
-# ここまで　側板の頂点座標を計算する
-
-x_array = []
-y_array = []
-z_array = []
-for i in degree:  # 底板の頂点座標を計算する
-    # print("θ = ",i)
-    if deg_1 <= i < deg_2:
-        x_array.append(X_12 + (R_12 - gawaitaTop_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(Y_12 + (R_12 - gawaitaTop_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight)
-    if deg_2 <= i < deg_3:
-        x_array.append(x_2 + (r_2 - gawaitaTop_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(y_2 + (r_2 - gawaitaTop_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight)
-    if deg_3 <= i < deg_4:
-        x_array.append(X_21 + (R_21 - gawaitaTop_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(Y_21 + (R_21 - gawaitaTop_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight)
-    if deg_4 <= i <= deg_5:
-        x_array.append(x_1 + (r_1 - gawaitaTop_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(y_1 + (r_1 - gawaitaTop_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight)
-
-new_array = x_array + y_array + z_array
-temp_a = np.array(new_array)
-sokoita_Top_array = np.reshape(temp_a, (3, len(degree)))
-
-x_array = []
-y_array = []
-z_array = []
-for i in degree:
-    # print("θ = ",i)
-    if deg_1 <= i < deg_2:
-        x_array.append(X_12 + (R_12 - gawaitaBottom_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(Y_12 + (R_12 - gawaitaBottom_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight - sokoitaThickness)
-    if deg_2 <= i < deg_3:
-        x_array.append(x_2 + (r_2 - gawaitaBottom_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(y_2 + (r_2 - gawaitaBottom_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight - sokoitaThickness)
-    if deg_3 <= i < deg_4:
-        x_array.append(X_21 + (R_21 - gawaitaBottom_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(Y_21 + (R_21 - gawaitaBottom_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight - sokoitaThickness)
-    if deg_4 <= i <= deg_5:
-        x_array.append(x_1 + (r_1 - gawaitaBottom_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(y_1 + (r_1 - gawaitaBottom_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight - sokoitaThickness)
-
-new_array = x_array + y_array + z_array
-temp_a = np.array(new_array)
-sokoita_Bottom_array = np.reshape(temp_a, (3, len(degree)))
-
-x_array = []
-y_array = []
-z_array = []
 deg_count = len(degree)
 faces_array = []
 mesh_1 = outer_top_array.T
-mesh_2 = inner_top_array.T
-mesh_3 = outer_bottom_array.T
-mesh_4 = inner_bottom_array.T
-mesh_5 = sokoita_Top_array.T
-mesh_6 = sokoita_Bottom_array.T
 
-vertices = np.vstack([mesh_1, mesh_2, mesh_3, mesh_4, mesh_5, mesh_6])
+vertices = np.vstack(mesh_1)
 
 # print("vertices = ",vertices)
 # 側板（外面）
