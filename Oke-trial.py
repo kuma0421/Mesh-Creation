@@ -351,11 +351,13 @@ for i in range(deg_count):
 faces_temp = np.array(faces_array)
 faces = np.reshape(faces_temp, ((deg_count) * 4, 5))
 surf = pv.PolyData(vertices, faces)
-
-plotter.add_mesh(surf, color="tan")
+# surf = pv.PolyData(vertices,)
+plotter.add_mesh(surf, color="tan", show_edges=True)
 # plotter.add_mesh(surf1, color="tan")
 # plotter.add_mesh(surf2, color="tan")
 # plotter.add_mesh(surf3, color="gray")
 
 plotter.reset_camera()
 plotter.show()
+surfAll = surf
+surf.save('小判型桶.stl')
