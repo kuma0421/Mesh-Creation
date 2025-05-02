@@ -3,6 +3,9 @@ import numpy as np
 import pyvista as pv  # Delete for non-Pro version
 # from pyvistaqt import BackgroundPlotter  # Delete for non-Pro version
 
+plotter = pv.Plotter()
+# plotter = BackgroundPlotter()
+plotter.enable_parallel_projection()
 
 deg_1 = 261.37307344132137
 deg_2 = 278.62692655867863
@@ -56,12 +59,7 @@ for i in degree:
         x_array.append(X_12 + (R_12 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
         y_array.append(Y_12 + (R_12 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
         z_array.append(0.0)
-        x_array.append(X_12 + (R_12 - gawaitaTop_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(Y_12 + (R_12 - gawaitaTop_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight)
-        x_array.append(X_12 + (R_12 - gawaitaBottom_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(Y_12 + (R_12 - gawaitaBottom_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight - sokoitaThickness)
+
     if deg_2 <= i < deg_3:
         x_array.append(x_2 + r_2 * np.cos(np.radians(i)))
         y_array.append(y_2 + r_2 * np.sin(np.radians(i)))
@@ -75,12 +73,7 @@ for i in degree:
         x_array.append(x_2 + (r_2 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
         y_array.append(y_2 + (r_2 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
         z_array.append(0.0)
-        x_array.append(x_2 + (r_2 - gawaitaTop_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(y_2 + (r_2 - gawaitaTop_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight)
-        x_array.append(x_2 + (r_2 - gawaitaBottom_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(y_2 + (r_2 - gawaitaBottom_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight - sokoitaThickness)
+
     if deg_3 <= i < deg_4:
         x_array.append(X_21 + R_21 * np.cos(np.radians(i)))
         y_array.append(Y_21 + R_21 * np.sin(np.radians(i)))
@@ -94,12 +87,7 @@ for i in degree:
         x_array.append(X_21 + (R_21 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
         y_array.append(Y_21 + (R_21 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
         z_array.append(0.0)
-        x_array.append(X_21 + (R_21 - gawaitaTop_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(Y_21 + (R_21 - gawaitaTop_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight)
-        x_array.append(X_21 + (R_21 - gawaitaBottom_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(Y_21 + (R_21 - gawaitaBottom_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight - sokoitaThickness)
+
     if deg_4 <= i <= deg_5:
         x_array.append(x_1 + r_1 * np.cos(np.radians(i)))
         y_array.append(y_1 + r_1 * np.sin(np.radians(i)))
@@ -113,27 +101,17 @@ for i in degree:
         x_array.append(x_1 + (r_1 - gawaitaThickness - ochi) * np.cos(np.radians(i)))
         y_array.append(y_1 + (r_1 - gawaitaThickness - ochi) * np.sin(np.radians(i)))
         z_array.append(0.0)
-        x_array.append(x_1 + (r_1 - gawaitaTop_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(y_1 + (r_1 - gawaitaTop_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight)
-        x_array.append(x_1 + (r_1 - gawaitaBottom_offsetFromR) * np.cos(np.radians(i)))
-        y_array.append(y_1 + (r_1 - gawaitaBottom_offsetFromR) * np.sin(np.radians(i)))
-        z_array.append(sokoitaHeight - sokoitaThickness)
 
 new_array = x_array + y_array + z_array
 temp_a = np.array(new_array)
-print("length of new_array = ", len(new_array))
-print("degree = ", len(degree))
-outer_top_array = np.reshape(temp_a, (3, len(degree) * 6))
+outer_top_array = np.reshape(temp_a, (3, len(degree) * 4))
+vertices = np.vstack(outer_top_array.T)
 
 x_array = []
 y_array = []
 z_array = []
 deg_count = len(degree)
 faces_array = []
-mesh_1 = outer_top_array.T
-
-vertices = np.vstack(mesh_1)
 
 # print("vertices = ",vertices)
 # 側板（外面）
@@ -209,9 +187,6 @@ for i in range(deg_count):
         faces_array.append(deg_count * 3 + i + 1)
         faces_array.append(deg_count * 2 + i + 1)
 
-plotter = pv.Plotter()
-# plotter = BackgroundPlotter()
-plotter.enable_parallel_projection()
 faces_temp = np.array(faces_array)
 faces = np.reshape(faces_temp, ((deg_count) * 5, 5))
 surf = pv.PolyData(vertices, faces)
