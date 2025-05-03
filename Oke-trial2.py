@@ -249,9 +249,9 @@ for i in range(deg_count):
 sokoita_Bottom_faces_temp = np.array(sokoita_Bottom_faces)
 surf2 = pv.PolyData(vertices, sokoita_Bottom_faces_temp)
 
-plotter.add_mesh(surf, color="tan", show_edges=True)
-plotter.add_mesh(surf1, color="tan", show_edges=True)
-plotter.add_mesh(surf2, color="tan", show_edges=True)
+plotter.add_mesh(surf, color="tan", show_edges=False)
+plotter.add_mesh(surf1, color="tan", show_edges=False)
+plotter.add_mesh(surf2, color="tan", show_edges=False)
 # plotter.add_mesh(surf3, color="gray")
 
 plotter.reset_camera()
