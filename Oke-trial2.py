@@ -7,11 +7,13 @@ plotter = pv.Plotter()
 # plotter = BackgroundPlotter()
 plotter.enable_parallel_projection()
 
+
 deg_1 = 261.37307344132137
 deg_2 = 278.62692655867863
 deg_3 = 441.37307344132137
 deg_4 = 458.62692655867863
 deg_5 = 621.3730734413214
+deg_array = np.array([deg_1, deg_2, deg_3, deg_4, deg_5])
 deg_step = 1
 X_12 = 15.0
 Y_12 = 98.86859966642594
@@ -37,8 +39,9 @@ lowerTagaHeight = 10.0
 tagaWidth = 5.0
 tagaThickness = 1.0
 
-deg_temp = np.arange(deg_1, deg_5, deg_step, dtype=float)
-degree = deg_temp.tolist()
+startDeg = deg_array[0]
+endDeg = deg_array[len(deg_array) - 1]
+degree = np.arange(startDeg, endDeg, deg_step, dtype=float).tolist()
 
 # 側板の頂点座標を計算する
 # 上側縁
