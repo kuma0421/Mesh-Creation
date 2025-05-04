@@ -1,7 +1,9 @@
 import numpy as np
 
 xyrArray = np.arange(24)
+print("original xyrArray: ", xyrArray)
 RArray = np.arange(8)
+print("original RArray: ", RArray)
 xyr_Array = np.array(xyrArray).reshape(-1, 3)
 R_Array = np.array(RArray)
 xyr_ptsNum = len(xyr_Array)
@@ -24,6 +26,3 @@ for i in range(0, xyr_ptsNum):
         z2 = xyr_Array[0][2]
     R = R_Array[i]
     print(x1, y1, z1, x2, y2, z2, R)
-    
-
-
