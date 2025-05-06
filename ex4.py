@@ -1,5 +1,5 @@
-import numpy as np
-
+# import numpy as np
+"""
 xyrArray = np.arange(24)
 print("original xyrArray: ", xyrArray)
 RArray = np.arange(8)
@@ -26,6 +26,7 @@ for i in range(0, xyr_ptsNum):
         z2 = xyr_Array[0][2]
     R = R_Array[i]
     print(x1, y1, z1, x2, y2, z2, R)
+<<<<<<< HEAD
     x1 = xyr_Array[i][0]
     if 4 // 2 == 1:
         print("奇数")
@@ -88,3 +89,17 @@ deg10 = deg9 + self.Pt2Angle(X56, Y56, x6, y6, X61, Y61)
 deg11 = deg10 + self.Pt2Angle(x6, y6, X61, Y61, x1, y1)
 deg12 = deg11 + self.Pt2Angle(X61, Y61, x1, y1, X12, Y12)
 """
+=======
+"""
+print("1 % 2=", 1 % 2)
+numOfXyzPts = 3
+for k in range(0, numOfXyzPts*2+1):
+    if k == 0:
+        print("k=",k)
+    elif k != 0 and k // 2 == 1:  # 奇数の時
+        print("k=",k)
+    elif k != 0 and k // 2 == 0 and k != numOfXyzPts*2:  # 偶数の時
+        print("k=",k)
+    else:  # 最後の偶数の時
+        print("k=",k)
+>>>>>>> c4309aef97c317cd141955a7baa7397dd16153b6
