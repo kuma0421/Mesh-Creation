@@ -1,27 +1,41 @@
 import numpy as np
-import pprint
-a = np.array([[0, 0],
-                      [1, 0],
-                      [1, 1],
-                      [0, 1]])
-numOfPts = len(a)
+# import pprint
+
+
+xy_Array = np.array([[0, 0],
+              [2, 0],
+              [1, 3],
+              [0, 2],
+              [2, 2]])
+
+numOfPts = len(xy_Array)
 print("numOfPts: ", numOfPts)
 temp=np.array([0] * numOfPts)
 print("temp: ", temp)
 temp = np.reshape(temp, (numOfPts, 1))
-pts_Array=np.append(a, temp, axis=1)
+pts_Array=np.append(xy_Array, temp, axis=1)
 print("original pts_Array: ", pts_Array)
 for i in range(numOfPts-2):
     u = pts_Array[1]-pts_Array[0]
     v = pts_Array[i+2]-pts_Array[0]
     print("u: ", u)
     print("v: ", v)
-    w = np.dot(u, v)
+    dt = np.dot(u, v)
+    print("dot product: ", dt)
+    crs = np.cross(u, v)  # uとvの外積を計算
+    print("cross product: ", crs)
     n = np.linalg.norm(u) * np.linalg.norm(v)
-    c = w / n
-    a = np.rad2deg(np.arccos(np.clip(c, -1.0, 1.0)))
-    print('{}x{}のはさむ角度は: {}'.format(i, i + 1, a))
-
+    c = dt / n
+    print("u.v: ", c)
+    deg = np.rad2deg(np.arccos(np.clip(c, -1.0, 1.0)))
+    print('{}x{}のはさむ角度は: {}'.format(i, i + 1, deg))
+    pts_Array[i+2][2] = deg
+print("pts_Array: ", pts_Array)
+pts_Array = sorted(pts_Array, key=lambda x: x[2])
+print("sorted pts_Array: ", pts_Array)
+new_pts_Array = np.delete(pts_Array, 2, axis=1)  # 角度の列を削除
+print("new_pts_Array: ", new_pts_Array)
+"""
 x=pts_Array[0]-pts_Array[1]
 print("pts_Array[0]", pts_Array[0])
 print("pts_Array[1]", pts_Array[1])
@@ -32,7 +46,6 @@ x_array = [[0,3,5],
 y=sorted(x_array, key=lambda x: x[2])
 pprint.pprint(y, width=20)
 
-"""
 def polyginPtsCheck(self, pts_Array):  # 多角形の座標を与えると、反時計回りに座標点を並べ替える
     u = np.array([x1, y1, 0])
     v = np.array([x2, y2, 0])
